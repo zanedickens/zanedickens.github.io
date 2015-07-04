@@ -1,2 +1,2 @@
 # zanedickens.github.io
-My personal site
+My personal site - this should be fun :)
