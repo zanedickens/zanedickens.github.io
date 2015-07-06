@@ -17,6 +17,14 @@
 	<!-- Custom styles for this template -->
 	<link href="css/style.css" rel="stylesheet">
 
+	<!-- JS -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-animate.min.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/app.routes.js"></script>
+
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,10 +42,10 @@
 
 				<div class="masthead clearfix">
 					<div class="inner">
-						<h3 class="masthead-brand">Cover</h3>
+						<h3 class="masthead-brand">Zane Dickens</h3>
 						<nav>
 							<ul class="nav masthead-nav">
-								<li class="active"><a href="#">Home</a>
+								<li class="active"><a ui-sref="about">About</a>
 								</li>
 								<li><a href="#">Projects</a>
 								</li>
@@ -48,14 +56,7 @@
 					</div>
 				</div>
 
-				<div class="inner cover">
-					<h1 class="cover-heading">Designer / Developer</h1>
-					<h2>Past: Documetary Camerman, Promo Scriptwriter and Director, Editor of TV Crime Series, Blogger, Graphic Designer, Social Media 'Guru'.</h2>
-					<p class="lead">Inspired by the launch of Internet.org in South Africa (4th of July, 2015), to build projects of use within the constraints of the platform</p>
-					<p class="lead">
-						<a href="#" class="btn btn-lg btn-default">Learn more</a>
-					</p>
-				</div>
+				<ui-view></ui-view>
 
 				<div class="mastfoot">
 					<div class="inner">
