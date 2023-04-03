@@ -47,4 +47,41 @@ navLinks.forEach(link => {
   })
 })
 
+// Will change the background gradient every hour of a 24-hour day:
+
+function setBackground() {
+    var now = new Date();
+    var hour = now.getHours();
+    var color1, color2;
+  
+    if (hour >= 0 && hour < 6) {
+      color1 = "#020111";
+      color2 = "#3a6186";
+    } else if (hour >= 6 && hour < 9) {
+      color1 = "#f7971e";
+      color2 = "#ffd200";
+    } else if (hour >= 9 && hour < 12) {
+      color1 = "#ddd6f3";
+      color2 = "#faaca8";
+    } else if (hour >= 12 && hour < 15) {
+      color1 = "#bdc3c7";
+      color2 = "#2c3e50";
+    } else if (hour >= 15 && hour < 18) {
+      color1 = "#cb2d3e";
+      color2 = "#ef473a";
+    } else if (hour >= 18 && hour < 21) {
+      color1 = "#00c6ff";
+      color2 = "#0072ff";
+    } else {
+      color1 = "#0f0c29";
+      color2 = "#302b63";
+    }
+  
+    document.body.style.background = "linear-gradient(to bottom, " + color1 + ", " + color2 + ")";
+  }
+  
+  setBackground(); // initial call
+  
+  // update every hour
+  setInterval(setBackground, 60 * 60 * 1000); 
   
