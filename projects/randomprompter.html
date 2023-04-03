@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Writing Prompt</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-gray-200 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-4xl font-bold text-center mb-4">Random Writing Prompt</h1>
+      <div class="bg-white shadow-md rounded p-6 max-w-md mx-auto">
+        <p id="prompt" class="text-xl text-gray-800">Shake your phone or refresh the page for a new prompt.</p>
+      </div>
+    </div>
+    <script>
+      const promptElement = document.getElementById("prompt");
+
+      function generateStoryCore() {
+        const character = [
+          "a shy librarian",
+          "a curious child",
+          "a pompous artist",
+          "a mischievous detective",
+          "a grumpy old man",
+        ];
+        const setting = [
+          "at the bustling city market",
+          "in a sleepy countryside village",
+          "during a mysterious carnival",
+          "at a bustling intergalactic space station",
+          "in an enchanted forest",
+        ];
+        const conflict = [
+          "who discovers a hidden magical artifact",
+          "who accidentally unleashes a powerful curse",
+          "who stumbles upon a secret underground society",
+          "whose loved one goes missing under mysterious circumstances",
+          "who has to uncover a devious plot to save their world",
+        ];
+
+        const randomCharacter =
+          character[Math.floor(Math.random() * character.length)];
+        const randomSetting =
+          setting[Math.floor(Math.random() * setting.length)];
+        const randomConflict =
+          conflict[Math.floor(Math.random() * conflict.length)];
+
+        return `Write about ${randomCharacter}, ${randomSetting}, ${randomConflict}.`;
+      }
+
+      function displayPrompt() {
+        const storyCore = generateStoryCore();
+        promptElement.textContent = storyCore;
+      }
+
+      function handleShakeEvent(event) {
+        if (typeof DeviceMotionEvent.requestPermission === "function") {
+          DeviceMotionEvent.requestPermission()
+            .then((permissionState) => {
+              if (permissionState === "granted") {
+                if (event.acceleration.x > 15 || event.acceleration.y > 15 || event.acceleration.z > 15) {
+                  displayPrompt();
+                }
+              }
+            })
+            .catch(console.error);
+        } else {
+          if (event.acceleration.x > 15 || event.acceleration.y > 15 || event.acceleration.z > 15) {
+            displayPrompt();
+          }
+        }
+      }
+
+      window.addEventListener("devicemotion", handleShakeEvent);
+      window.addEventListener("load", displayPrompt);
+    </script>
+  </body>
+</html>
