@@ -1,0 +1,27 @@
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  /* Other styles for the body element go here */
+}
+/* Set the sun and moon to position: fixed so they are always visible */
+.sun,
+.moon {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sun {
+  background-color: #f1c40f; /* yellow color */
+}
+
+.moon {
+  background-color: #bdc3c7; /* gray color */
+}
